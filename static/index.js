@@ -1,7 +1,7 @@
 let nomi;
 
 function preload() {
-    loadJSON("nomi.json", (risposta) => {
+    loadJSON("nomi", (risposta) => {
         nomi = risposta.nomi;
     });
 }
@@ -19,7 +19,7 @@ function setup() {
             banca(50)
                 .then(() => {
                     removeElements();
-
+                    window.location.replace("http://localhost:3000/matrix");
                 });
         });
 }

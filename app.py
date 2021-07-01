@@ -1,4 +1,4 @@
-from flask import render_template, Flask
+from flask import render_template, Flask, send_file
 from flask_cors import CORS
 # Creo l'istanza dell'applicazione
 # La specification_dir indica dove trovare il file swagger
@@ -15,6 +15,16 @@ def home():
 
     """
     return render_template("index.html")
+
+@app.route("/nomi")
+def nomi():
+    """
+
+    Questa funzione restituisce i nomi come json
+
+    """
+
+    return send_file("dati/nomi.json")
 
 # Pagina di controllo live dei nomi
 @app.route("/matrix")
