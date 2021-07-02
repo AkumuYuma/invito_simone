@@ -26,16 +26,13 @@ def nomi():
 
     return send_file("dati/nomi.json")
 
-# Pagina di controllo live dei nomi
 @app.route("/matrix")
-def controllo():
-    """
-
-    Questa funzione renderizza la pagina di controllo delle persone
-
-    """
-
+def matrix():
     return render_template("matrix.html")
+
+@app.route("/scritta_finale")
+def scritta_finale():
+    return render_template("scritta_finale.html")
 
 
 if __name__ == "__main__":

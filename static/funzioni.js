@@ -20,7 +20,10 @@ async function fakeSaluto(offset) {
                 // Do risposta sbagliata
                 risposta.html("Hai selezionato " + nomeFake + "\n giusto?");
                 // Creo due pulsanti per la scelta
-                createButton("Si").position(width / 2, 4 * offset);
+                createButton("Si").position(width / 2, 4 * offset)
+                    .mousePressed(() => {
+                        resolve(selection.value());
+                    });
                 // Creo un paragraph per la risposta a no
                 let miDispiace = createP();
                 createButton("No")
@@ -33,7 +36,7 @@ async function fakeSaluto(offset) {
                                 conferma.html("Va bene, " + nomeFake + ", andiamo avanti").position(width / 2, 7 * offset);
                                 resolve(selection.value());
                             });
-                        createButton("No").position(width / 2 + offset, 6 * offset)
+                        createButton("No").position(width / 2 + offset, 6 * offset);
                     });
             });
     })
@@ -42,8 +45,17 @@ async function fakeSaluto(offset) {
 async function banca(offset) {
     return new Promise((resolve) => {
         createP("Stiamo prelevando i dati del tuo dispositivo.").position(width / 2 - offset, 0);
+        // Creo una nuova barra e la faccio partire 
         let barra = new Count(0, 100, width/2, 2 * offset);
         barra.start();
+        // Setto un intervallo per controllare ogni 50 ms che la barra abbia raggiunto 100, se ha raggiunto cancello e risolvo la promessa
+        setInterval(() => {
+            if (barra.s >= 100) {
+                barra.delete(); 
+                resolve("");
+            }
+        }, 50); 
+
         createP("Clicca annulla per interrompere l'operazione").position(width / 2 - offset, 3 * offset)
         // Tasto rifiuta che si sposta
         let rifiuta = createButton("Rifiuta");
