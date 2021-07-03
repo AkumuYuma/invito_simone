@@ -3,6 +3,9 @@ var fadeInterval = 1.6;
 var symbolSize = 14;
 
 function setup() {
+  // Dopo 8 secondi redireziono verso la scritta finale 
+  setTimeout(() => window.location.replace("http://localhost:3000/scritta_finale"), 10000); 
+
   createCanvas(
     window.innerWidth,
     window.innerHeight

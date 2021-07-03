@@ -1,5 +1,6 @@
 from flask import render_template, Flask, send_file
 from flask_cors import CORS
+
 # Creo l'istanza dell'applicazione
 # La specification_dir indica dove trovare il file swagger
 app = Flask(__name__)
@@ -8,12 +9,6 @@ CORS(app)
 # Base per "/" dell'applicazione
 @app.route("/")
 def home():
-    """
-
-    Questa funzione gestisce la risposta alle richieste su url:5000/
-    Restituisce il rendering del template 'home.html'
-
-    """
     return render_template("index.html")
 
 @app.route("/nomi")

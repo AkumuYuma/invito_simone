@@ -1,5 +1,6 @@
 let scritta = `In tempo di pandemia questo è un "virus" innocuo, che ha il solo obiettivo di metterci insieme, di contagiare amicizia, di ridarci la gioia di una giornata da 
-trascorrere all'insegna della spensieratezza`
+trascorrere all'insegna della spensieratezza. Vieni alla mia festa?`; 
+
 
 let x;
 let y; 
@@ -18,7 +19,7 @@ function setup() {
 
 let i = 0;
 function draw() {
-    frameRate(20); 
+    frameRate(30); 
     let lettera = scritta[i]
     fill(0, 255, 70);
     text(lettera, x, y);
@@ -26,7 +27,8 @@ function draw() {
         x = width/30; 
         y += 30; 
     }
-    x += offset;
+    x += textWidth(lettera);
+
     if (i < scritta.length - 1) {
         i += 1;
     } else {
