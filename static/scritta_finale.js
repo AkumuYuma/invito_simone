@@ -23,7 +23,7 @@ function draw() {
     let lettera = scritta[i]
     fill(0, 255, 70);
     text(lettera, x, y);
-    if (x >= width - width/30) { 
+    if (x >= width - width/20 ) { 
         x = width/30; 
         y += 30; 
     }

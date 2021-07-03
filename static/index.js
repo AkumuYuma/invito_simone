@@ -1,9 +1,14 @@
-let nomi;
+let nomi, porta, host;
 
 function preload() {
     loadJSON("nomi", (risposta) => {
         nomi = risposta.nomi;
     });
+
+    loadJSON("variabili", (variabili) => {
+        porta = variabili.porta; 
+        host = variabili.host;
+    })
 }
 
 
@@ -19,7 +24,7 @@ function setup() {
             banca(50)
                 .then(() => {
                     removeElements();
-                    window.location.replace("http://localhost:3000/matrix");
+                    window.location.replace("http://" + host + ":" + porta + "/matrix");
                 });
         });
 }

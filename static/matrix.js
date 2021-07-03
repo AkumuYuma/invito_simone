@@ -2,9 +2,15 @@ var streams = [];
 var fadeInterval = 1.6;
 var symbolSize = 14;
 
+let host; porta;
+function preload() {
+  loadJSON("variabili", (variabili) => {
+    host = variabili.host; 
+    porta = variabili.porta;
+  })
+}
+
 function setup() {
-  // Dopo 8 secondi redireziono verso la scritta finale 
-  setTimeout(() => window.location.replace("http://localhost:3000/scritta_finale"), 10000); 
 
   createCanvas(
     window.innerWidth,
@@ -22,6 +28,12 @@ function setup() {
 
   textFont('Consolas');
   textSize(symbolSize);
+
+  // Dopo 8 secondi redireziono verso la scritta finale 
+  let delay = setTimeout(() => {
+    window.location.href = "http://" + host + ":" + porta + "/scritta_finale"; 
+    window.clearTimeout(delay); 
+  }, 5000); 
 }
 
 function draw() {

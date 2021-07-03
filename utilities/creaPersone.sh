@@ -1,6 +1,6 @@
 #!/bin/bash
 
-filePath=../src/nomi.json
+filePath=../dati/nomi.json
 
 echo -n "{ \"nomi\": [" > $filePath
 for i in {1..100}; do

@@ -11,15 +11,6 @@ CORS(app)
 def home():
     return render_template("index.html")
 
-@app.route("/nomi")
-def nomi():
-    """
-
-    Questa funzione restituisce i nomi come json
-
-    """
-
-    return send_file("dati/nomi.json")
 
 @app.route("/matrix")
 def matrix():
@@ -29,7 +20,21 @@ def matrix():
 def scritta_finale():
     return render_template("scritta_finale.html")
 
+@app.route("/variabili")
+def variabili():
+    """
+    Manda le variabili di enviroment come porta e host
+    """
+    return send_file("dati/variabili.json") 
+
+@app.route("/nomi")
+def nomi():
+    """
+    Questa funzione restituisce i nomi come json
+    """
+
+    return send_file("dati/nomi.json")
 
 if __name__ == "__main__":
     # Per esporlo alla rete modificare host = "0.0.0.0"
-    app.run(host = '0.0.0.0', port= 3000, debug = True)
+    app.run(host = '0.0.0.0', port= 5000, debug = True)
