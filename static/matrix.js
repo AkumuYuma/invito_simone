@@ -2,7 +2,8 @@ var streams = [];
 var fadeInterval = 1.6;
 var symbolSize = 14;
 
-let host; porta;
+let host; 
+let porta;
 function preload() {
   loadJSON("variabili", (variabili) => {
     host = variabili.host; 

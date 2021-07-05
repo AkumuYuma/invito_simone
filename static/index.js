@@ -23,7 +23,7 @@ function setup() {
             removeElements();
             banca(50)
                 .then(() => {
-                    removeElements();
+                    removeElements(sessionStorage.setItem("invitato", invitato));
                     window.location.replace("http://" + host + ":" + porta + "/matrix");
                 });
         });
