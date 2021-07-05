@@ -9,7 +9,7 @@ let offset;
 let host; 
 let porta;
 
-let immagine; 
+let immagine_invito; 
 
 function preload() {
   loadJSON("variabili", (variabili) => {
@@ -18,7 +18,7 @@ function preload() {
   }); 
 
   loadImage("immagine", (img) => {
-    immagine = img;  
+    immagine_invito = img;  
   }); 
 }
 
@@ -56,21 +56,31 @@ function draw() {
         .mousePressed(() => {
             invitato = sessionStorage.getItem("invitato"); 
             console.log(invitato);
-            const http = new XMLHttpRequest();
-            const url =  "http://" + host + ":" + porta + "/conferma/" + invitato 
-            console.log(url); 
-            http.open("GET", url); 
-            http.send(); 
             background(0); 
             removeElements();
 
             if (width > height) {
-              image(immagine, 0, 0, height, height); 
+              image(immagine_invito, 0, 0, height - height/3 , height - height/3); 
             } else {
-              image(immagine, 0, 0, width, width); 
+              image(immagine_invito, 0, 0, width, width); 
             }
-            createButton("Certo!", width/3, width + 50)
-            .size(width/3, height/6); 
+            createButton("Certo!")
+            .size(width/3, height/6)
+            .position(0, height - height/3 + 50)
+            .mousePressed(() => {
+              const http = new XMLHttpRequest();
+              const url =  "http://" + host + ":" + porta + "/conferma/" + invitato 
+              console.log(url); 
+              http.open("GET", url); 
+              http.send(); 
+              fill(0, 255, 77); 
+              textSize("30"); 
+              textFont("consolas"); 
+              text("Grazie!", width/2, height - height/3 + 100); 
+            }); 
+            createButton("No")
+            .size(50, 50) 
+            .position(width/3, height - height/3 + 50); 
         }); 
         createButton("No")
         .position(width/2 + 50, y + 30)

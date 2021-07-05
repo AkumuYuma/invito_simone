@@ -14,7 +14,7 @@ function preload() {
 
 function setup() {
     // Offset per il posizionamento
-    let offset = 35;
+    let offset = 100;
     createCanvas(windowWidth, windowHeight);
     background(0);
     fakeSaluto(offset)
@@ -28,8 +28,4 @@ function setup() {
                     window.location.replace("http://" + host + ":" + porta + "/matrix");
                 });
         });
-}
-
-function draw() {
-    // put drawing code here
 }
