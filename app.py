@@ -59,6 +59,14 @@ def leggi_conferme():
      
     return json.JSONEncoder().encode(nomi)
     
+@app.route("/immagine")
+def manda_immagine():
+    """
+    Manda l'immagine finale
+    """
+
+    return send_file("media/Page2_DEF.jpg")
+
 
 
 if __name__ == "__main__":

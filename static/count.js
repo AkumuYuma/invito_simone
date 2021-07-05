@@ -28,20 +28,21 @@ class Count {
 
     delete() {
         clearInterval(this.aggiornamento);
-        background(255);
+        background(0);
     }
 
     show() {
-        background(255);
+        background(0);
         let lunghezza = 200;
         let progress = map(this.s, 0, 100, 0, lunghezza);
-        fill(0);
+        fill(0, 255, 77);
         textSize(20);
-        textFont('monospace')
+        textFont('consolas')
         text('Avanzamento: ' + this.s + '%', this.x, this.y - 20);
 
+
         rect(this.x, this.y, progress, 20, 20);
-        stroke(0);
+        stroke(255);
         noFill();
         rect(this.x, this.y, lunghezza, 20, 20);
     }

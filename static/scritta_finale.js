@@ -9,11 +9,17 @@ let offset;
 let host; 
 let porta;
 
+let immagine; 
+
 function preload() {
   loadJSON("variabili", (variabili) => {
     host = variabili.host; 
     porta = variabili.porta;
-  })
+  }); 
+
+  loadImage("immagine", (img) => {
+    immagine = img;  
+  }); 
 }
 
 function setup() {
@@ -55,8 +61,16 @@ function draw() {
             console.log(url); 
             http.open("GET", url); 
             http.send(); 
-            createP("Confermato!"); 
+            background(0); 
+            removeElements();
 
+            if (width > height) {
+              image(immagine, 0, 0, height, height); 
+            } else {
+              image(immagine, 0, 0, width, width); 
+            }
+            createButton("Certo!", width/3, width + 50)
+            .size(width/3, height/6); 
         }); 
         createButton("No")
         .position(width/2 + 50, y + 30)
