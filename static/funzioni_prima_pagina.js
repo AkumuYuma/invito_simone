@@ -12,7 +12,7 @@ async function fakeSaluto(offset) {
         // Risposta alla scelta
         let risposta = createP().position(10, 3 * offset);
         // Nome falso da mostrare
-        let nomeFake = "Giorgio Vanni";
+        let nomeFake = "Valerio Lundini";
         // Gestione del pulsante di conferma
         createButton("Conferma")
             .position(10, 2 * offset)

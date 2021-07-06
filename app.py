@@ -59,13 +59,21 @@ def leggi_conferme():
      
     return json.JSONEncoder().encode(nomi)
     
-@app.route("/immagine")
+@app.route("/immagini/conferma")
 def manda_immagine():
     """
     Manda l'immagine finale
     """
 
     return send_file("media/Page2_DEF.jpg")
+
+    
+@app.route("/immagini/rifiuta")
+def manda_rifiuto():
+    """
+    Manda l'immagini con la linguaccia 
+    """
+    return send_file("media/rifiuto.gif") 
 
 
 
