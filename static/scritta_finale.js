@@ -5,25 +5,16 @@ let x;
 let y;
 let offset;
 
-let host;
-let porta;
 
 let immagine_invito;
-let immagine_rifiuto;
 
 function preload() {
-    loadJSON("variabili", (variabili) => {
-        host = variabili.host;
-        porta = variabili.porta;
-    });
-
     loadImage("immagini/conferma", (img) => {
         immagine_invito = img;
     });
 }
 
 function setup() {
-    console.log(host, porta);
     createCanvas(windowWidth, windowHeight);
     background(0);
     textFont("Consolas");

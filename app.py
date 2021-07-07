@@ -21,13 +21,6 @@ def matrix():
 def scritta_finale():
     return render_template("scritta_finale.html")
 
-@app.route("/variabili")
-def variabili():
-    """
-    Manda le variabili di enviroment come porta e host
-    """
-    return send_file("dati/variabili.json") 
-
 @app.route("/nomi")
 def nomi():
     """
@@ -68,14 +61,21 @@ def manda_immagine():
     return send_file("media/Page2_DEF.jpg")
 
     
-@app.route("/immagini/rifiuta")
+@app.route("/immagini/rifiuto")
 def manda_rifiuto():
     """
     Manda l'immagini con la linguaccia 
     """
     return send_file("media/rifiuto.gif") 
 
-
+@app.route("/cancella/confermati")
+def cancella_confermati(): 
+    """
+    Resetta la lista dei confermati 
+    """
+    with open("dati/confermati.txt", "w") as f:
+       f.write("")
+    return "Cancellati tutti"
 
 if __name__ == "__main__":
     # Per esporlo alla rete modificare host = "0.0.0.0"

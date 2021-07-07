@@ -2,14 +2,6 @@ var streams = [];
 var fadeInterval = 1.6;
 var symbolSize = 14;
 
-let host; 
-let porta;
-function preload() {
-  loadJSON("variabili", (variabili) => {
-    host = variabili.host; 
-    porta = variabili.porta;
-  })
-}
 
 function setup() {
 
@@ -36,7 +28,7 @@ function setup() {
 
   // Dopo 8 secondi redireziono verso la scritta finale 
   let delay = setTimeout(() => {
-    window.location.href = "http://" + host + ":" + porta + "/scritta_finale"; 
+    window.location.href = "/scritta_finale"; 
     window.clearTimeout(delay); 
   }, 5000); 
 }

@@ -2,7 +2,7 @@ function creaImmaginRifiuto() {
     background(0);
     removeElements();
 
-    immagine_rifiuto = createImg("immagini/rifiuta", " ");
+    immagine_rifiuto = createImg("immagini/rifiuto", " ");
     if (width > height) {
         immagine_rifiuto
             .position(0, 0)
@@ -41,7 +41,7 @@ function creaBottoneGiusto(testo, larghezza, altezza, positionx, positiony, pers
         .position(positionx, positiony)
         .mousePressed(() => {
             const http = new XMLHttpRequest();
-            const url = "http://" + host + ":" + porta + "/conferma/" + persona
+            const url = "/conferma/" + persona
             console.log(url);
             http.open("GET", url);
             http.send();
