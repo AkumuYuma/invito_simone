@@ -31,11 +31,14 @@ function setup() {
     x = width / 30;
     y = height / 3;
     offset = width / 80;
+
+    console.log(localStorage.getItem("invitato"));
+    
 }
 
 let i = 0;
 function draw() {
-    invitato = sessionStorage.getItem("invitato");
+  
     frameRate(30);
     let lettera = scritta[i]
     fill(0, 255, 70);

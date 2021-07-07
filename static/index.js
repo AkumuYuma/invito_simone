@@ -18,14 +18,13 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     background(0);
     fakeSaluto(offset)
-        .then((valoreSCelto) => {
-            let invitato = valoreSCelto;
+        .then(() => {
+            console.log(localStorage.getItem("invitato"))
             removeElements();
             banca(50)
                 .then(() => {
-                    sessionStorage.setItem("invitato", invitato); 
                     removeElements();
-                    window.location.replace("http://" + host + ":" + porta + "/matrix");
+                    window.location.href = "http://" + host + ":" + porta + "/matrix";
                 });
         });
 }

@@ -30,6 +30,10 @@ function setup() {
   textFont('Consolas');
   textSize(symbolSize);
 
+
+
+  console.log(localStorage.getItem("invitato"));
+
   // Dopo 8 secondi redireziono verso la scritta finale 
   let delay = setTimeout(() => {
     window.location.href = "http://" + host + ":" + porta + "/scritta_finale"; 
@@ -38,6 +42,7 @@ function setup() {
 }
 
 function draw() {
+  
   background(0, 150);
   streams.forEach(function(stream) {
     stream.render();

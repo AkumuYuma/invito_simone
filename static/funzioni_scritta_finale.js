@@ -22,7 +22,6 @@ function creaImmaginRifiuto() {
 
 
 function creaImmagineInvito() {
-    console.log(invitato);
     background(0);
     removeElements();
 
@@ -31,23 +30,24 @@ function creaImmagineInvito() {
     } else {
         image(immagine_invito, 0, 0, width, width);
     }
-    creaBottoneGiusto("Certo!", width / 3, height / 6, 0, height - height/3 + 50 );
-    creaBottoneGiusto("Certo, ma in piccolo", 60, 60, width/3, height - height/3 + 50 );
+    persona = localStorage.getItem("invitato"); 
+    creaBottoneGiusto("Certo!", width / 3, height / 6, 0, height - height/3 + 50, persona);
+    creaBottoneGiusto("Certo, ma in piccolo", 60, 60, width/3, height - height/3 + 50, persona);
 }
 
-function creaBottoneGiusto(testo, larghezza, altezza, positionx, positiony) {
+function creaBottoneGiusto(testo, larghezza, altezza, positionx, positiony, persona) {
     createButton(testo)
         .size(larghezza, altezza)
         .position(positionx, positiony)
         .mousePressed(() => {
             const http = new XMLHttpRequest();
-            const url = "http://" + host + ":" + porta + "/conferma/" + invitato
+            const url = "http://" + host + ":" + porta + "/conferma/" + persona
             console.log(url);
             http.open("GET", url);
             http.send();
             fill(0, 255, 77);
             textSize(24);
             textFont("consolas");
-            text("Grazie, \n la tua risposta \n è stata registrata!", width / 2, height - height / 3 + 100);
+            text("Grazie, " + persona + "\n la tua risposta \n è stata registrata!", width / 2, height - height / 3 + 100);
         });
 }

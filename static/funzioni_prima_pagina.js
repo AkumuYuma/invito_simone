@@ -17,12 +17,15 @@ async function fakeSaluto(offset) {
         createButton("Conferma")
             .position(10, 2 * offset)
             .mousePressed(() => {
+                // Salvo il valore scelto nella sessione del browser 
+                let valoreScelto = selection.value(); 
+                localStorage.setItem("invitato", valoreScelto); 
                 // Do risposta sbagliata
                 risposta.html("Hai selezionato " + nomeFake + "\n giusto?");
                 // Creo due pulsanti per la scelta
                 createButton("Si").position(10, 4 * offset)
                     .mousePressed(() => {
-                        resolve(selection.value());
+                        resolve(valoreScelto);
                     });
                 // Creo un paragraph per la risposta a no
                 let miDispiace = createP();
@@ -33,8 +36,8 @@ async function fakeSaluto(offset) {
                         let conferma = createP();
                         createButton("Si").position(10, 6 * offset)
                             .mousePressed(() => {
-                                conferma.html("Va bene, " + nomeFake + ", andiamo avanti").position(width / 2, 7 * offset);
-                                resolve(selection.value());
+                                conferma.html("Va bene, " + nomeFake + ", andiamo avanti").position(10, 7 * offset);
+                                resolve(valoreScelto);
                             });
                         createButton("No").position(10 + offset, 6 * offset);
                     });
