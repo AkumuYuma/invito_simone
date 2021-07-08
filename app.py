@@ -7,11 +7,11 @@ import json
 app = Flask(__name__)
 CORS(app)
 
+# Templates
 # Base per "/" dell'applicazione
 @app.route("/")
 def home():
     return render_template("index.html")
-
 
 @app.route("/matrix")
 def matrix():
@@ -21,6 +21,11 @@ def matrix():
 def scritta_finale():
     return render_template("scritta_finale.html")
 
+@app.route("/finito")
+def finito():
+    return render_template("finito.html") 
+
+# Utilities
 @app.route("/nomi")
 def nomi():
     """
@@ -28,7 +33,6 @@ def nomi():
     """
 
     return send_file("dati/nomi.json")
-
     
 @app.route("/conferma/<nome>")
 def conferma(nome):
@@ -40,6 +44,8 @@ def conferma(nome):
     
     return f"{nome} confermato"
         
+
+# Lettura
 @app.route("/read/confermati")
 def leggi_conferme():
     """
@@ -51,23 +57,8 @@ def leggi_conferme():
             nomi.append(nome.strip("\n"))
      
     return json.JSONEncoder().encode(nomi)
-    
-@app.route("/immagini/conferma")
-def manda_immagine():
-    """
-    Manda l'immagine finale
-    """
 
-    return send_file("media/Page2_DEF.jpg")
-
-    
-@app.route("/immagini/rifiuto")
-def manda_rifiuto():
-    """
-    Manda l'immagini con la linguaccia 
-    """
-    return send_file("media/rifiuto.gif") 
-
+# Delete
 @app.route("/cancella/confermati")
 def cancella_confermati(): 
     """
@@ -76,6 +67,35 @@ def cancella_confermati():
     with open("dati/confermati.txt", "w") as f:
        f.write("")
     return "Cancellati tutti"
+
+# Media
+@app.route("/immagini/conferma")
+def manda_immagine():
+    """
+    Manda l'immagine finale
+    """
+
+    return send_file("media/Page2_DEF.jpg")
+
+@app.route("/immagini/rifiuto")
+def manda_rifiuto():
+    """
+    Manda l'immagini con la linguaccia 
+    """
+    return send_file("media/rifiuto.gif")
+
+
+@app.route("/audio/lalaland") 
+def manda_audio():
+    """
+    Manda l'audio di lalaland
+    """
+    return send_file("media/Lalalaland.mp3")
+
+@app.route("/video/easterEgg")
+def manda_video():
+    return send_file("media/easterEgg.mp4")
+
 
 if __name__ == "__main__":
     # Per esporlo alla rete modificare host = "0.0.0.0"

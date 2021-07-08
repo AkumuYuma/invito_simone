@@ -30,7 +30,7 @@ function setup() {
   let delay = setTimeout(() => {
     window.location.href = "/scritta_finale"; 
     window.clearTimeout(delay); 
-  }, 5000); 
+  }, 8000); 
 }
 
 function draw() {

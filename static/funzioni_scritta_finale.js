@@ -24,6 +24,13 @@ function creaImmaginRifiuto() {
 function creaImmagineInvito() {
     background(0);
     removeElements();
+    // Faccio partire la musica
+    audio_sottofondo.play(); 
+
+    // Metto un timeout per reindirizzare alla fine dell'invito 
+    setTimeout(() => {
+        window.location.href = "/finito"; 
+    }, 30000); 
 
     if (width > height) {
         image(immagine_invito, 0, 0, height - height / 3, height - height / 3);
@@ -33,6 +40,7 @@ function creaImmagineInvito() {
     persona = localStorage.getItem("invitato"); 
     creaBottoneGiusto("Certo!", width / 3, height / 6, 0, height - height/3 + 50, persona);
     creaBottoneGiusto("Certo, ma in piccolo", 60, 60, width/3, height - height/3 + 50, persona);
+    
 }
 
 function creaBottoneGiusto(testo, larghezza, altezza, positionx, positiony, persona) {

@@ -14,7 +14,14 @@ function preload() {
     });
 }
 
+
+let audio_sottofondo; 
 function setup() {
+    // Carico l'audio 
+    loadSound("/audio/lalaland", (audio) => {
+        audio_sottofondo = audio; 
+    });
+
     createCanvas(windowWidth, windowHeight);
     background(0);
     textFont("Consolas");
@@ -53,3 +60,4 @@ function draw() {
             .mousePressed(creaImmaginRifiuto);
     }
 }
+
