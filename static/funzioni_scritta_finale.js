@@ -2,7 +2,7 @@ function creaImmaginRifiuto() {
     background(0);
     removeElements();
 
-    immagine_rifiuto = createImg("immagini/rifiuto", " ");
+    immagine_rifiuto = createImg("media/rifiuto.gif", " ");
     if (width > height) {
         immagine_rifiuto
             .position(0, 0)

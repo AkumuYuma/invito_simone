@@ -9,7 +9,7 @@ let offset;
 let immagine_invito;
 
 function preload() {
-    loadImage("immagini/conferma", (img) => {
+    loadImage("media/invito.jpg", (img) => {
         immagine_invito = img;
     });
 }
@@ -18,7 +18,7 @@ function preload() {
 let audio_sottofondo; 
 function setup() {
     // Carico l'audio 
-    loadSound("/audio/lalaland", (audio) => {
+    loadSound("media/Lalaland.mp3", (audio) => {
         audio_sottofondo = audio; 
     });
 

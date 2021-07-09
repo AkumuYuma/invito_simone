@@ -25,15 +25,8 @@ def scritta_finale():
 def finito():
     return render_template("finito.html") 
 
-# Utilities
-@app.route("/nomi")
-def nomi():
-    """
-    Restituisce i nomi come json
-    """
 
-    return send_file("dati/nomi.json")
-    
+# Conferma 
 @app.route("/conferma/<nome>")
 def conferma(nome):
     """
@@ -46,6 +39,14 @@ def conferma(nome):
         
 
 # Lettura
+@app.route("/read/nomi")
+def nomi():
+    """
+    Restituisce i nomi come json
+    """
+
+    return send_file("dati/nomi.json")
+
 @app.route("/read/confermati")
 def leggi_conferme():
     """
@@ -69,32 +70,12 @@ def cancella_confermati():
     return "Cancellati tutti"
 
 # Media
-@app.route("/immagini/conferma")
-def manda_immagine():
+@app.route("/media/<nome>")
+def manda_media(nome):
     """
-    Manda l'immagine finale
+    Manda il media passato nell'url
     """
-
-    return send_file("media/Page2_DEF.jpg")
-
-@app.route("/immagini/rifiuto")
-def manda_rifiuto():
-    """
-    Manda l'immagini con la linguaccia 
-    """
-    return send_file("media/rifiuto.gif")
-
-
-@app.route("/audio/lalaland") 
-def manda_audio():
-    """
-    Manda l'audio di lalaland
-    """
-    return send_file("media/Lalalaland.mp3")
-
-@app.route("/video/easterEgg")
-def manda_video():
-    return send_file("media/easterEgg.mp4")
+    return send_file("media/" + nome)
 
 
 if __name__ == "__main__":

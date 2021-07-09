@@ -1,7 +1,7 @@
 let nomi;
 
 function preload() {
-    loadJSON("nomi", (risposta) => {
+    loadJSON("/read/nomi", (risposta) => {
         nomi = risposta.nomi;
     });
 }
