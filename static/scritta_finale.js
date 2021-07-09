@@ -18,13 +18,6 @@ function preload() {
 
 let audio_sottofondo; 
 function setup() {
-    // Carico l'audio solo se sono in firefox
-    if (detectBrowser() === "Firefox") {
-        loadSound("media/Lalaland.mp3", (audio) => {
-            audio_sottofondo = audio; 
-        });
-    }
-
     createCanvas(windowWidth, windowHeight);
     background(0);
     textFont("Consolas");
