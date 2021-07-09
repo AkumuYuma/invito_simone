@@ -12,4 +12,4 @@ fi
 docker image rm akumuyuma/invito_amici
 
 # Faccio ripartire il docker
-docker run -d --rm --name sito_amici -p 443:80 akumuyuam/invito_amici
+docker run -d --rm --name sito_amici -p 443:80 akumuyuma/invito_amici
