@@ -24,8 +24,10 @@ function creaImmaginRifiuto() {
 function creaImmagineInvito() {
     background(0);
     removeElements();
-    // Faccio partire la musica
-    audio_sottofondo.play(); 
+    // Faccio partire la musica solo se sono in firefox 
+    if (detectBrowser() === "Firefox") {
+        audio_sottofondo.play(); 
+    }
 
     // Metto un timeout per reindirizzare alla fine dell'invito 
     setTimeout(() => {
@@ -58,4 +60,21 @@ function creaBottoneGiusto(testo, larghezza, altezza, positionx, positiony, pers
             textFont("consolas");
             text("Grazie, " + persona + "\n la tua risposta \n è stata registrata!", width / 2, height - height / 3 + 100);
         });
+}
+
+//gets the type of browser
+function detectBrowser() {
+    if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) {
+        return 'Opera';
+    } else if(navigator.userAgent.indexOf("Chrome") != -1 ) {
+        return 'Chrome';
+    } else if(navigator.userAgent.indexOf("Safari") != -1) {
+        return 'Safari';
+    } else if(navigator.userAgent.indexOf("Firefox") != -1 ){
+        return 'Firefox';
+    } else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) {
+        return 'IE';//crap
+    } else {
+        return 'Unknown';
+    }
 }

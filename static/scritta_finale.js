@@ -9,6 +9,7 @@ let offset;
 let immagine_invito;
 
 function preload() {
+    // Carico l'immagine dell'invito
     loadImage("media/invito.jpg", (img) => {
         immagine_invito = img;
     });
@@ -17,10 +18,12 @@ function preload() {
 
 let audio_sottofondo; 
 function setup() {
-    // Carico l'audio 
-    loadSound("media/Lalaland.mp3", (audio) => {
-        audio_sottofondo = audio; 
-    });
+    // Carico l'audio solo se sono in firefox
+    if (detectBrowser() === "Firefox") {
+        loadSound("media/Lalaland.mp3", (audio) => {
+            audio_sottofondo = audio; 
+        });
+    }
 
     createCanvas(windowWidth, windowHeight);
     background(0);
