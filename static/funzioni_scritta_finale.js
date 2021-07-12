@@ -25,11 +25,6 @@ function creaImmagineInvito() {
     background(0);
     removeElements();
 
-    // Metto un timeout per reindirizzare alla fine dell'invito 
-    setTimeout(() => {
-        window.location.href = "/finito"; 
-    }, 30000); 
-
     if (width > height) {
         image(immagine_invito, 0, 0, height - height / 3, height - height / 3);
     } else {
