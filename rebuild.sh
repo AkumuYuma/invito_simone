@@ -2,23 +2,24 @@
 
 # Script per il rebuild sulla macchina di developement
 
+nomeImmagine="invito_amici"
 # Se ho un docker già aperto lo chiudo
-dockerID=$(docker ps -a | grep "invito_amici" | awk '{ print $1; }')
+dockerID=$(docker ps -a | grep $nomeImmagine | awk '{ print $1; }')
 if [[ $dockerID != "" ]]; then
     docker rm -f $dockerID
 fi
 
 # Cancello l'immagine
-docker image rm akumuyuma/invito_amici
+docker image rm akumuyuma/$nomeImmagine
 
 # E la rebuildo
-docker build . -t akumuyuma/invito_amici
+docker build . -t akumuyuma/$nomeImmagine
 
 # Faccio partire il docker
-dockerID=$(docker run -d --rm --name invito_amici -p 5000:80 akumuyuma/invito_amici)
+dockerID=$(docker run -d --rm --name $nomeImmagine -p 5000:80 akumuyuma/$nomeImmagine)
 
 # Committo il docker al repo
-docker commit $dockerID akumuyuma/invito_amici
+docker commit $dockerID akumuyuma/$nomeImmagine
 
 # E faccio il push
-docker push akumuyuma/invito_amici:latest
+docker push akumuyuma/$nomeImmagine:latest
