@@ -47,8 +47,8 @@ function creaBottoneGiusto(testo, larghezza, altezza, positionx, positiony, pers
             http.open("GET", url);
             http.send();
             fill(0, 255, 77);
-            textSize(24);
+            textSize(18);
             textFont("consolas");
-            text("Grazie, " + persona + "\n la tua risposta \n è stata registrata!", width / 2, height - height / 3 + 100);
+            text("Grazie, " + persona + "\n la tua risposta \n è stata registrata!", 10, height - height / 3 + 200);
         });
 }
