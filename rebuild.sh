@@ -16,7 +16,7 @@ docker image rm akumuyuma/$nomeImmagine
 docker build . -t akumuyuma/$nomeImmagine
 
 # Faccio partire il docker
-dockerID=$(docker run -d --rm --name $nomeImmagine
+dockerID=$(docker run -d --rm --name $nomeImmagine)
 
 # Committo il docker al repo
 docker commit $dockerID akumuyuma/$nomeImmagine
