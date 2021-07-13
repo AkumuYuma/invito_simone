@@ -1,7 +1,7 @@
 async function fakeSaluto(offset) {
     return new Promise((resolve) => {
         // Primo paragrafo
-        createP("Seleziona il tuo nome").position(10, 0);
+        createP("Seleziona il tuo nucleo famigliare").position(10, 0);
         // Selezione da popolare
         let selection = createSelect();
         selection.position(10, offset);
@@ -12,7 +12,7 @@ async function fakeSaluto(offset) {
         // Risposta alla scelta
         let risposta = createP().position(10, 3 * offset);
         // Nome falso da mostrare
-        let nomeFake = "Valerio Lundini";
+        let nomeFake = "Fam. Ferragnez";
         // Gestione del pulsante di conferma
         createButton("Conferma")
             .position(10, 2 * offset)
